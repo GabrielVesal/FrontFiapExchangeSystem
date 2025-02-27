@@ -5,6 +5,7 @@ let height = document.querySelector(".header-custom").clientHeight;
 
 const flakes = [];
 const snowPile = []; // Array para armazenar a posição dos flocos acumulados
+const maxSnowPileSize = 1500; // Limite máximo de flocos acumulados
 
 // Ajusta o tamanho do canvas quando a janela é redimensionada
 function resizeCanvas() {
@@ -28,6 +29,7 @@ function createFlakes() {
 
 // Desenha os flocos de neve
 function drawFlakes() {
+  // Limpa o canvas
   ctx.clearRect(0, 0, width, height);
 
   // Desenha a pilha de neve acumulada
@@ -51,6 +53,9 @@ function drawFlakes() {
   ctx.fill();
 
   moveFlakes();
+
+  // Chama a próxima animação
+  requestAnimationFrame(drawFlakes);
 }
 
 // Move os flocos de neve
@@ -68,6 +73,11 @@ function moveFlakes() {
         radius: flake.radius,
       });
 
+      // Remove flocos antigos se o limite for atingido
+      if (snowPile.length > maxSnowPileSize) {
+        snowPile.shift(); // Remove o floco mais antigo
+      }
+
       // Reinicia o floco no topo
       flakes[i] = {
         x: Math.random() * width,
@@ -83,7 +93,7 @@ function moveFlakes() {
 function init() {
   resizeCanvas();
   createFlakes();
-  setInterval(drawFlakes, 50);
+  requestAnimationFrame(drawFlakes); // Usa requestAnimationFrame em vez de setInterval
 }
 
 // Eventos
