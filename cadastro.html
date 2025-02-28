@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiap Exchange System</title>
+    <link rel="icon" href="./images/floco.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body>
+    <header class="header-custom">
+      <canvas id="snow"></canvas>
+      <!-- Canvas para o efeito de neve -->
+      <h2 class="display-6">Fiap Exchange System</h2>
+    </header>
+
+    <div class="container p-4 my-4 border rounded">
+      <h3 class="display-6 my-2">Próximas trocas - Vitrine</h3>
+      <div class="row my-4" id="gridProdutos"></div>
+    </div>
+
+    <div class="container p-4 my-4 border rounded">
+      <h2 class="mt-4">Cadastrar Usuário</h2>
+      <form class="dadosConta" id="dadosConta" method="get" action="">
+        <div class="row mb-3">
+          <div class="col-md-12 my-3">
+            <label for="usuario" class="form-label">Usuário</label>
+            <input
+              type="text"
+              class="form-control"
+              id="usuario"
+              name="usuario"
+              placeholder="ex: Darth Vader"
+              required
+              autofocus
+            />
+          </div>
+
+          <div class="col-md-4 my-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="ex: seuemail@email.com"
+              required
+            />
+          </div>
+
+          <div class="col-md-4 my-3">
+            <label for="dataCadastro" class="form-label"
+              >Data do Cadastro</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="dataCadastro"
+              name="dataCadastro"
+              required
+            />
+          </div>
+
+          <div class="col-md-4 my-3">
+            <label for="tipoConta" class="form-label">Tipo de Conta</label>
+            <select id="tipoConta" class="form-select" required></select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+          <button type="submit" class="btn btn-primary">Criar Conta</button>
+        </div>
+      </form>
+      <h3 class="display-6 my-4 pt-3 border-top">Lista de contas</h3>
+
+      <table id="resumo" class="table table-hover text-center">
+        <thead class="table-dark">
+          <tr id="cabecalho">
+            <th class="usuario">Usuário</th>
+            <th class="email">Email</th>
+            <th class="data-cadastro">Data do Cadastro</th>
+            <th class="tipo-conta">Tipo de conta</th>
+          </tr>
+        </thead>
+        <tbody id="listaContas"></tbody>
+      </table>
+    </div>
+
+    <!-- <script src="./js/dom.js"></script> -->
+    <script type="module" src="./js/objetos.js"></script>
+    <script type="module" src="./js/montarFront.js"></script>
+  </body>
+  <footer
+    class="footer-custom text-white text-center py-3"
+    style="background-color: #0d6efd"
+  >
+    <canvas id="snow"></canvas>
+    <!-- Canvas para o efeito de neve -->
+    <div class="container">
+      <p class="mb-0">
+        &copy; 2023 Fiap Donation System. Todos os direitos reservados.
+      </p>
+      <p class="mb-0">
+        Desenvolvido por
+        <a
+          href="https://www.linkedin.com/in/gabrielvesal/"
+          target="_blank"
+          class="text-white"
+          >Gabriel Alves</a
+        >.
+      </p>
+    </div>
+  </footer>
+  <script src="./snow.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</html>
